@@ -135,7 +135,7 @@ const userController = {
                             res.status(404).json({ message: 'No friend found with this ID!' });
                             return;
                         }
-                        res.json({message: 'This friend has been successfully deleted!'});
+                        res.json({ message: 'This friend has been successfully deleted!' });
                     })
                     .catch(err => res.status(400).json(err));
             })
