@@ -87,7 +87,7 @@ const userController = {
     // Create Friend
     createFriend({ params }, res) {
         User.findOneAndUpdate(
-            { _id: params.userID },
+            { _id: params.userId },
             { $addToSet: { friends: params.friendId } },
             { new: true, runValidators: true }
         )
@@ -98,7 +98,7 @@ const userController = {
                 }
                 User.findOneAndUpdate(
                     { _id: params.friendId },
-                    { $addToSet: { friends: params.userID } },
+                    { $addToSet: { friends: params.userId } },
                     { new: true, runValidators: true }
                 )
                     .then(dbUserData2 => {
@@ -116,7 +116,7 @@ const userController = {
     // Delete Friend
     deleteFriend({ params }, res) {
         User.findOneAndUpdate(
-            { _id: params.userID },
+            { _id: params.userId },
             { $pull: { friends: params.friendId } },
             { new: true, runValidators: true }
         )
@@ -127,7 +127,7 @@ const userController = {
                 }
                 User.findOneAndUpdate(
                     { _id: params.friendId },
-                    { $pull: { friends: params.userID } },
+                    { $pull: { friends: params.userId } },
                     { new: true, runValidators: true }
                 )
                     .then(dbUserData2 => {
@@ -135,7 +135,7 @@ const userController = {
                             res.status(404).json({ message: 'No friend found with this ID!' });
                             return;
                         }
-                        res.json({message: 'This friend has been successfully deleted!'});
+                        res.json({ message: 'This friend has been successfully deleted!' });
                     })
                     .catch(err => res.status(400).json(err));
             })
