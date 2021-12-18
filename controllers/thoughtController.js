@@ -4,12 +4,12 @@ const thoughtController = {
     // Get all Thoughts
     getAllThought(req, res) {
         Thought.find({})
-            .populate([
-                {
-                    path: 'reactions',
-                    select: '-__v'
-                }
-            ])
+            // .populate([
+            //     {
+            //         path: 'reactions',
+            //         select: '-__v'
+            //     }
+            // ])
             .select('-__v')
             .then(dbThoughtData => res.json(dbThoughtData))
             .catch(err => {
@@ -21,12 +21,12 @@ const thoughtController = {
     // Get one Thought by id
     getThoughtById({ params }, res) {
         Thought.findOne({ _id: params.id })
-            .populate([
-                {
-                    path: 'reactions',
-                    select: '-__v'
-                }
-            ])
+            // .populate([
+            //     {
+            //         path: 'reactions',
+            //         select: '-__v'
+            //     }
+            // ])
             .select('-__v')
             .then(dbThoughtData => {
                 if (!dbThoughtData) {
@@ -116,15 +116,16 @@ const thoughtController = {
     removeReaction({ params }, res) {
         Thought.findOneAndUpdate(
             { _id: params.thoughtId },
-            { $pull: { reactions: { reactionId: params.reactionId } } },
+            { $pull: { reactions: { _id: params.reactionId } } },
             { new: true, runValidators: true }
         )
-            .then(dbThoughtData => {
+            .then((dbThoughtData )=> {
                 if (!dbThoughtData) {
                     res.status(404).json({ message: 'No reacTTTTtions found with this ID!' });
                     return;
                 }
-                res.json({ message: 'This reaction has been successfully deleted!' });
+                console.log('test')
+                res.json(dbThoughtData);
             })
             .catch(err => res.status(400).json(err));
     }
