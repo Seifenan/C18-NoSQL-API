@@ -9,8 +9,8 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(express.static('public'));
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/socialmedia-api_db', {
-  useFindAndModify: false,
-  useCreateIndex: true,
+  // useFindAndModify: false,
+  // useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
