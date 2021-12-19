@@ -121,7 +121,7 @@ const thoughtController = {
         )
             .then((dbThoughtData )=> {
                 if (!dbThoughtData) {
-                    res.status(404).json({ message: 'No reacTTTTtions found with this ID!' });
+                    res.status(404).json({ message: 'No reactions found with this ID!' });
                     return;
                 }
                 console.log('test')

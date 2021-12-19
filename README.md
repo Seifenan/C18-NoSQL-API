@@ -9,20 +9,20 @@
   * [description](#description)
   * [installation](#installation)
   * [usage](#usage)
-  * [username](#username)
   * [questions](#questions)
-  * [credits](#credits)
   * [license](#license)
-  * [badges](#badges)
-  * [contribution](#contribution)
-  * [test](#test)
   
   ## Installation
   First, Please download this repository and install node.js on your machine. Then, run "npm i" in your terminal or command line to download the required dependencies. Finally, run "npm start" to initialize the application and start listening on your local host.
 
   ## Usage 
-  User must "npm install" in the terminal to automatically install required dependencies and files. The user must run "node index.js" to trigger the set of questions that will generate the team profile document.
- 
+  User must "npm install" in the terminal to automatically install required dependencies and files. The user must run "npm start" to sync models to the MongoDB database and start the server.
+
+  [Video Demo Link]()
+
+
+  <img src="assets\img\screenshot.gif">
+  
   ## Questions
   To check out more of my projects, visit my repo [link](https://github.com/seifenan).
   To reach me with more questions email me at seifenan@gmail.com. 
